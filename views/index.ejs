@@ -33,25 +33,28 @@
               </tr>
             </thead>
             <tbody>
+              <% for(var i=0;i<users.length;i++) { %>
               <tr>
-                
                 <td>1</td>
-                <td>Balaji</td>
-                <td>Balajikrishna44589@gmail.com</td>
-                <td>Male</td>
-                <td>Active</td>
+                <td><%= users[i].username %></td>
+                <td><%= users[i].emailid %></td>
+                <td><%= users[i].gender %></td>
+                <td><%= users[i].status %></td>
                 <td>
+                 
                     <div class="card d-flex flex-row justify-content-around align-items-center" style="width: 70px">
-                    <a href="/update-user">
+                    <a href="/update-user?id=<%= users[i]._id %>">
                     <i class="bi bi-pencil-square"></i>
                 </a>
-                <a>
+               
+                <a href="/update-user">
                     <i class="bi bi-trash-fill"></i>
                 </a>
             </div>
                 </td>
               </tr>
             </tbody>
+            <% } %>
           </table>
     </form>
     

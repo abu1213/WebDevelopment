@@ -19,25 +19,25 @@
     
 
     <!--Form Handling-->
-    <form method="post" class="container mt-3">
+    <form action="/api/users" method="post" class="container mt-3">
             <div class="mb-3">
               <label for="UserName" class="form-label">UserName</label>
-              <input type="text" class="form-control w-25" id="UserName">
+              <input type="text" class="form-control w-25" id="UserName" name="username">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email Id</label>
-                <input type="email" class="form-control w-25" id="email">
+                <input type="email" class="form-control w-25" id="email" name="emailid">
               </div>
             <div>
                 <label for="gender">Gender</label>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="gender" checked>
+            <input class="form-check-input" type="radio" name="gender" value="Male" checked>
             <label class="form-check-label" for="gender">
               Male
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="gender">
+            <input class="form-check-input" type="radio" name="gender" value="Female">
             <label class="form-check-label" for="gender">
               Female
             </label>
@@ -47,13 +47,13 @@
         <div>
             <label for="Status">Status</label>
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="status" checked>
+        <input class="form-check-input" type="radio" name="status" value="Active" checked>
         <label class="form-check-label" for="status">
           Active
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" name="status">
+        <input class="form-check-input" type="radio" name="status" value="Inactive">
         <label class="form-check-label" for="status">
           Inactive
         </label>

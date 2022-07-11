@@ -10,16 +10,6 @@ port = process.env.PORT || 8000
 connectDB()
 app.set("view engine","ejs")
 
-// app.get('/',(req,res)=>{
-//     res.render("index")
-// })
-// app.get('/add-user',(req,res)=>{
-//     res.render("add_user")
-// })
-// app.get('/update-user',(req,res)=>{
-//     res.render("update_user")
-// })
-
 app.use("/",Router)
 app.listen(port,()=>{
     console.log(`Connected on port: ${port}`)

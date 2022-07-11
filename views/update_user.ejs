@@ -17,16 +17,16 @@
     
 </main>
     
-
+<div>Edit</div>
     <!--Form Handling-->
-    <form method="post" class="container mt-3">
+    <form method="post" class="container mt-3" action="/api/users/">
             <div class="mb-3">
               <label for="UserName" class="form-label">UserName</label>
-              <input type="text" class="form-control w-25" id="UserName">
+              <input type="text" class="form-control w-25" id="UserName" name="username" value="<%=users.username %>">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email Id</label>
-                <input type="email" class="form-control w-25" id="email">
+                <input type="email" class="form-control w-25" name="emailid" id="email" value="<%=users.emailid %>">
               </div>
             <div>
                 <label for="gender">Gender</label>
