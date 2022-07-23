@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
+    this.auth.canAuthenticate();
   }
 
   onSubmit(){
@@ -24,10 +25,14 @@ export class RegisterComponent implements OnInit {
     .subscribe({
       next:data=>{
         this.auth.storeToken(data.idToken)
+        this.auth.canAuthenticate();
       },
       error:data=>{
-        if(data.error.error.message=="INVALID EMAIL"){
+        if(data.error.error.message=="INVALID_EMAIL"){
           this.errorMessage="Invalid Email"
+        }
+        else if(data.error.error.message=="EMAIL_EXISTS"){
+          this.errorMessage="Email already exists"
         }
       }
     }).add(()=>{

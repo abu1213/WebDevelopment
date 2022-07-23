@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor(public route:Router,private http:HttpClient) { }
    isAuthenticated():boolean{
-    if(sessionStorage.getItem("token")!==null){
+    if(localStorage.getItem("token")!==null){
       return true
     }
     return false
@@ -19,6 +19,11 @@ export class AuthService {
       this.route.navigate(["/login"])
     }
   }
+  canAuthenticate(){
+    if(this.isAuthenticated()){
+      this.route.navigate(["/dashboard"])
+    }
+  }
   register(name:string,email:string,password:string){
     return this.http
     .post<{idToken:string}>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCmtXBLLxmFtNKN6xocz5n-nnBeGjy-zno",
@@ -26,6 +31,13 @@ export class AuthService {
     )
   }
   storeToken(token:string){
-    sessionStorage.setItem('token',token)
+    localStorage.setItem('token',token)
+  }
+
+  login(email:string,password:string){
+    return this.http
+    .post<{idToken:string}>("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCmtXBLLxmFtNKN6xocz5n-nnBeGjy-zno",
+    {email,password}
+    )
   }
 }
