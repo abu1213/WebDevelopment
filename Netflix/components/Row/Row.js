@@ -21,7 +21,7 @@ const Row = ({title,fetchUrl,isLarge=false}) => {
     {
         movies.map((movie)=>
             ((isLarge && movie.poster_path) || (!isLarge && movie.backdrop_path)) &&(
-        <img className={`row_poster ${isLarge && "row_posterLarge"}`}
+        <img key={movie.id}  className={`row_poster ${isLarge && "row_posterLarge"}`}
         src={`${base_url}${isLarge?movie.poster_path:movie.backdrop_path}`} />
             ) )}
         
